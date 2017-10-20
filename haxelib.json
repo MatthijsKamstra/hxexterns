@@ -1,0 +1,11 @@
+{
+	"name": "hxexterns",
+	"url" : "https://github.com/MatthijsKamstra/hxexterns",
+	"license": "MIT",
+	"tags": ["javascript", "js", "externs"],
+	"description": "Some of my (incomplete) externs",
+	"version": "0.0.1",
+	"classPath": "src",
+	"releasenote": "",
+	"contributors": ["MatthijsKamstra"]
+}
