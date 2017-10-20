@@ -64,8 +64,7 @@ extern class PDFFont {
 
 // @:jsRequire("pdfkit")
 @:native("PDFDocument")
-extern class PDFDocument
-{
+extern class PDFDocument {
 	var version : String;
 	var options : Dynamic; // page dir and size
 
