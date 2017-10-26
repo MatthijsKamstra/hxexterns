@@ -15,3 +15,21 @@
 -main TestMyJSClass
 -js bin/TestMyJSClass.js
 
+--next
+
+-cp src
+-main TestHTTPServer
+-js bin/TestHTTPServer.js
+
+--next
+
+-cp src
+-main TestFS
+-js bin/TestFS.js
+
+--next
+
+-cp src
+-main TestFunctor
+-js bin/TestFunctor.js
+

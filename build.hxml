@@ -1,0 +1,6 @@
+
+-cp test
+-cp src
+-main MainOnOff
+-js bin/MainOnOff.js
+# -dce no

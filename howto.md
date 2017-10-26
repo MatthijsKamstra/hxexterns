@@ -187,6 +187,10 @@ var scene = new Scene();
 ```
 
 
+
+The package and class name of the extern class should be the same as defined in the external library. If that is not the case, rewrite the path of a class using @:native.
+
+
 ## simple example
 
 Lets take a simple javscript example and make a Haxe extern for that
@@ -227,9 +231,15 @@ extern class MyJSClass {
 ## Rest Eithertype
 
 
+The haxe.extern package provides two types that help mapping native semantics to Haxe:
+
+- `Rest<T>`: This type can be used as a final function argument to allow passing an arbitrary number of additional call arguments. The type parameter can be used to constrain these arguments to a specific type.
+- `EitherType<T1,T2>`: This type allows using either of its parameter types, thus representing a type choice. It can be nested to allow more than two different types.
+
+We demonstrate the usage in this code sample:
 
 
-```
+```haxe
 import haxe.extern.Rest;
 import haxe.extern.EitherType;
 
@@ -237,37 +247,160 @@ extern class MyExtern {
   static function f1(s:String, r:Rest<Int>):Void;
   static function f2(e:EitherType<Int, String>):Void;
 }
+
+class Main {
+  static function main() {
+    MyExtern.f1("foo", 1, 2, 3); // use 1, 2, 3 as rest argument
+    MyExtern.f1("foo"); // no rest argument
+    //MyExtern.f1("foo", "bar"); // String should be Int
+
+    MyExtern.f2("foo");
+    MyExtern.f2(12);
+    //MyExtern.f2(true); // Bool should be EitherType<Int, String>
+  }
+}
 ```
 
-
-## Require
-
+[source](https://haxe.org/manual/lf-externs.html#rest-arguments-and-type-choices)
 
 
-<https://haxe.org/manual/target-javascript-require.html>
+## Loading extern classes using "require" function
+
+[source](https://haxe.org/manual/target-javascript-require.html)
+
+> Modern JavaScript platforms, such as Node.js provide a way of loading objects from external modules using the "require" function. Haxe supports automatic generation of "require" statements for extern classes.
 
 
+This feature can be enabled by specifying `@:jsRequire` metadata for the extern class. If our extern class represents a whole module, we pass a single argument to the `@:jsRequire` metadata specifying the name of the module to load:
 
-@:jsRequire
-Generate javascript module require expression for given extern
-js
 
-```
+`@:jsRequire`
+
+> Generate javascript module require expression for given extern
+
+In case our extern class represents an object within a module, second @:jsRequire argument specifies an object to load from a module:
+
+```haxe
 @:jsRequire("fs")
 extern class FS {
   static function readFileSync(path:String, encoding:String):String;
 }
 ```
 
+will look in javascript like this
+
+```js
+var js_npm_FS = require("fs");
+```
 
 
+```haxe
+@:jsRequire("http", "Server")
+extern class HTTPServer {
+  function new();
+}
+```
+
+The second argument is a dotted-path, so we can load sub-objects in any hierarchy.
+
+```js
+var js_npm_HTTPServer = require("http").Server;
+```
+
+If we need to load custom JavaScript objects in runtime, a js.Lib.require function can be used. It takes String as its only argument and returns Dynamic, so it is advised to be assigned to a strictly typed variable.
+
+
+
+
+## Using external JavaScript libraries
 
 <https://haxe.org/manual/target-javascript-external-libraries.html>
 
+
+The externs mechanism provides access to the native APIs in a type-safe manner. It assumes that the defined types exist at run-time but assumes nothing about how and where those types are defined.
+
+An example of an extern class is the jQuery class of the Haxe Standard Library. To illustrate, here is a simplified version of this extern class:
+
+```haxe
+package js.jquery;
+@:native("$") extern class JQuery {
+  /**
+    Creates DOM elements on the fly from the provided string of raw HTML.
+    OR
+    Accepts a string containing a CSS selector which is then used to match a set of elements.
+    OR
+    Binds a function to be executed when the DOM has finished loading.
+  **/
+  @:selfCall
+  @:overload(function(element:js.html.Element):Void { })
+  @:overload(function(selection:js.jquery.JQuery):Void { })
+  @:overload(function(callback:haxe.Constraints.Function):Void { })
+  @:overload(function(selector:String, ?context:haxe.extern.EitherType<js.html.Element, js.jquery.JQuery>):Void { })
+  public function new():Void;
+
+  /**
+    Adds the specified class(es) to each element in the set of matched elements.
+  **/
+  @:overload(function(_function:Int -> String -> String):js.jquery.JQuery { })
+  public function addClass(className:String):js.jquery.JQuery;
+
+  /**
+    Get the HTML contents of the first element in the set of matched elements.
+    OR
+    Set the HTML contents of each element in the set of matched elements.
+  **/
+  @:overload(function(htmlString:String):js.jquery.JQuery { })
+  @:overload(function(_function:Int -> String -> String):js.jquery.JQuery { })
+  public function html():String;
+}
 ```
-@:native("$")
-extern class JQuery {
+Note that functions can be overloaded to accept different types of arguments and return values, using the @:overload metadata. Function overloading works only in externs.
+
+Using this extern, we can use jQuery like this:
+
+```haxe
+import js.jquery.*;
+..
+new JQuery("#my-div").addClass("brand-success").html("haxe is great!");
+..
 ```
+
+The package and class name of the extern class should be the same as defined in the external library. If that is not the case, rewrite the path of a class using @:native.
+
+```
+package my.application.media;
+
+@:native('external.library.media.video')
+extern class Video {
+..
+```
+
+Some JavaScript libraries favor instantiating classes without using the `new` keyword. To prevent the Haxe compiler outputting the new keyword when using a class, we can attach a `@:selfCall` metadata to its constructor. For example, when we instantiate the `jQuery` extern class above, `new JQuery()` will be outputted as `$()` instead of `new $()`. The `@:selfCall` metadata can also be attached to a method. In this case, the method will be interpreted as a direct call to the object, illustrated as follows:
+
+```haxe
+extern class Functor {
+  public function new():Void;
+  @:selfCall function call():Void;
+}
+
+class Test {
+  static function main() {
+    var f = new Functor();
+    f.call(); // will be outputted as `f();`
+  }
+}
+```
+
+
+
+
+
+Inserts a require expression that loads JavaScript object from a module or file specified in the module argument.
+
+This is only supported in environments where require function is available, such as Node.js or RequireJS.
+
+
+
 
 
 ## @:selfCall
@@ -292,7 +425,10 @@ class Test {
 }
 ```
 
------
+
+
+
+## adjustments
 
 
 
@@ -376,4 +512,36 @@ LowDb.query(db, 'posts').find({ title: 'lowdb is awesome' });
 ```
 @:native("PIXI")
 extern class Pixi
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+package js.npm;
+
+/**
+ * Source: http://myexternjs.com
+ * MyExtern.js v1.12
+ */
+
+@:native('FOO.MyExtern')
+@:jsRequire("http", "Server")
+extern class MyFooExtern {
+  function new ();
+  // other clever stuff
+}
 ```
