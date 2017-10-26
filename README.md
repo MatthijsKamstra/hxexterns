@@ -5,6 +5,11 @@ WIP, as is everything on the internet...
 my personal js externs
 
 
+## Haxe Externs
+
+What is the best way to start with this: read this [tutorial](howto.md)
+
+
 
 ## Haxelib
 

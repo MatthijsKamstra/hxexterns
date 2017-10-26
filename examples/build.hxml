@@ -1,0 +1,11 @@
+-cp src
+-main TestMyExtern
+-js bin/TestMyExtern.js
+# -dce no
+
+--next
+
+-cp src
+-main TestMyFooExtern
+-js bin/TestMyFooExtern.js
+
