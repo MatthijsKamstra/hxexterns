@@ -1,10 +1,12 @@
 # Haxe Externs: how to
 
 
+> The externs mechanism provides access to the native APIs in a type-safe manner. It assumes that the defined types exist at run-time but assumes nothing about how and where those types are defined.
+
+
 This is a little help to get you started with Haxe externs.
 
 Haxe documentation: <https://haxe.org/manual/lf-externs.html>
-
 
 
 Good list/collection externs to start with:
@@ -21,6 +23,10 @@ Some excelent examples:
 - Three.js: <https://bitbucket.org/yar3333/haxe-threejs>
 
 
+Typescript to Haxe convertor
+
+- <https://github.com/Simn/ts2hx>
+- <https://github.com/francescoagati/DefinitelyTyped.hx>
 
 
 ## Externs Basic
@@ -44,7 +50,7 @@ extern class MyExtern {
 }
 ```
 
-It might be a good idea to mention some extra info like Haxe version, Externs  based upon lib version, ...
+It might be a good idea to add some extra info like Haxe version, Externs based upon lib version, ...
 
 
 
@@ -69,30 +75,32 @@ extern class MyExtern {
 }
 ```
 
-But if you would transpile this extern you would end up with ([check](examples/bin/TestMyExtern.js))
+But if you would transpile this extern you would end up with ([haxe](examples/src/TestMyExtern.hx)) [js](examples/bin/TestMyExtern.js)
 
 
+```js
+var myExtern = new js.npm.MyExtern();
 ```
-	var myExtern = new js.npm.MyExtern();
-```
 
-This is most likely not something you would like to have: check `@:native`
-
-
+Not something you would like to have: to fix this check `@:native`
 
 
 ## @:native
 
+Lets see previous example: the path in to the class is forced by the package we use with Haxe
+
+In this case: `js.npm`
+
 You can fix the path of the extern by mirroring the structure with packages
 
-But it's much easier to use `@:native (Output type path)`
+But it's much easier to use `@:native(Output type path)`
 
 > Rewrites the path of a class or enum during generation.
 
 source: <https://haxe.org/manual/cr-metadata.html>
 
 
-Lets take previous with some changes example:
+Lets take previous extern with some changes example:
 
 ```haxe
 package js.npm;
@@ -110,52 +118,70 @@ extern class MyFooExtern {
 ```
 
 
-```
-	var myExtern = new FOO.MyFooExtern();
+```js
+var myExtern = new FOO.MyFooExtern();
 ```
 
-A good exampe is Pixi and Three.js
 
-```
+You have more controle over the path. Plus you can use paths with all caps.
+
+That is not possible with Haxe: a package with caps
+
+- `FOO.test` is not possible
+- `Foo.test` is not possible
+- `foo.test` is possible
+
+
+What is a good example: Pixi and Three.js
+
+**[pixi](https://github.com/pixijs/pixi-haxe/blob/dev/src/pixi/core/sprites/Sprite.hx)**
+
+```js
+// this is how javascript wants the call
 var sprite = new PIXI.Sprite();
 ```
 
-<https://github.com/pixijs/pixi-haxe/blob/dev/src/pixi/core/sprites/Sprite.hx>
-
-or
-
-```js
-var scene = new THREE.Scene();
-```
-
-
-
-
-[source](https://bitbucket.org/yar3333/haxe-threejs/src/c32fbf00db79d9f4ee0df8a862fea5c54096fe66/library/js/three/Scene.hx?at=default&fileviewer=file-view-default)
-
-This is very helpfull, because its not possible to have Haxe packages with capitals.
+So how will we use the Haxe Pixi externs?
 
 
 ```haxe
+// Haxe without import
 var sprite = new pixi.core.sprites.Sprite();
 ```
 
-```haxe
-import pixi.core.sprites.Sprite;
+or
 
+```haxe
+// Haxe with import
+import pixi.core.sprites.Sprite;
 //
 var sprite = new Sprite();
 ```
 
 
 
+**[three.js](https://bitbucket.org/yar3333/haxe-threejs/src/c32fbf00db79d9f4ee0df8a862fea5c54096fe66/library/js/three/Scene.hx?at=default&fileviewer=file-view-default)**
+
+
+```js
+// this is how javascript wants the call
+var scene = new THREE.Scene();
+```
+
+
+So how will we use the Haxe Three.js externs?
+
+
 ```haxe
+// Haxe without import
 var scene = new js.three.Scene();
 ```
 
-```haxe
-import js.three.Scene;
+or
 
+```haxe
+// Haxe with import
+import js.three.Scene;
 //
 var scene = new Scene();
 ```
@@ -163,33 +189,35 @@ var scene = new Scene();
 
 ## simple example
 
+Lets take a simple javscript example and make a Haxe extern for that
 
-<https://matthijskamstra.github.io/haxejs/05externs/example.html>
+[source](https://matthijskamstra.github.io/haxejs/05externs/example.html)
 
-```
+```js
 // JavaScript
 function MyJSClass() {
 }
 MyJSClass.SOME_PROP = 42;
 MyJSClass.someFunc = function() {
-    return "hello";
+	return "hello";
 }
 MyJSClass.prototype.myProp = null;
 MyJSClass.prototype.myFunc = function(prop) {
-    this.myProp = prop;
+	this.myProp = prop;
 }
 ```
 
+And that will be converted to
 
-```
+```haxe
 // Haxe extern
 extern class MyJSClass {
-    static var SOME_PROP:Int;
-    static function someFunc():Void;
+	static var SOME_PROP:Int;
+	static function someFunc():Void;
 
-    var myProp:String;
-    function new();
-    function myFunc(prop:String):Void;
+	var myProp:String;
+	function new();
+	function myFunc(prop:String):Void;
 }
 ```
 

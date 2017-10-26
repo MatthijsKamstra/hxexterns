@@ -9,3 +9,9 @@
 -main TestMyFooExtern
 -js bin/TestMyFooExtern.js
 
+--next
+
+-cp src
+-main TestMyJSClass
+-js bin/TestMyJSClass.js
+
