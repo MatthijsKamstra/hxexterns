@@ -51,9 +51,8 @@ class MainOnOff {
   }
 
   /**
-  //     Asynchronous API
-  // Blink the LED on GPIO #17 for 5 seconds:
-   * [init3 description]
+   * Asynchronous API
+   * Blink the LED on GPIO #17 for 5 seconds:
    * @return [description]
    */
   function init3 (){
