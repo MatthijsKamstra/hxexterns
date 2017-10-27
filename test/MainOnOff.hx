@@ -6,12 +6,13 @@ class MainOnOff {
 
   public function new() {
     // init1();
-    init2();
+    // init2();
+    init2a();
   }
 
   function init1(){
     var led = new Gpio(17, Direction.OUT);
-    var button = new Gpio(4, Direction.IN, Edge.BOTH);
+    var button = new Gpio(4, Direction.IN, EdgeValue.BOTH);
 
     button.watch(function(err:js.Error, value:Int) {
       if (err != null) {
@@ -47,6 +48,24 @@ class MainOnOff {
       iv.stop();          // Stop blinking
       led.writeSync(0);   // Turn LED off.
       led.unexport();     // Unexport GPIO and free resources
+    }, 5000);
+  }
+
+  function init2a(){
+    var led = new Gpio(17, Direction.OUT);      // Export GPIO #17 as an output.
+    var iv;
+
+    // Toggle the state of the LED on GPIO #17 every 200ms.
+    // Here synchronous methods are used. Asynchronous methods are also available.
+    iv = untyped setInterval(function () {
+      led.writeSync(led.readSync() ^ 1); // 1 = on, 0 = off :)
+    }, 200);
+
+    // Stop blinking the LED and turn it off after 5 seconds.
+    untyped setTimeout(function () {
+      clearInterval(iv); // Stop blinking
+      led.writeSync(0);  // Turn LED off.
+      led.unexport();    // Unexport GPIO and free resources
     }, 5000);
   }
 

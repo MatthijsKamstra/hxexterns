@@ -135,7 +135,7 @@ extern class Gpio {
    *                     Whether or not interrupts are supported is GPIO specific.
    *                     If interrupts are not supported the edge method should not be used.
    */
-  function edge():Eithertype<String, EdgeValue>;
+  function edge():EitherType<String, EdgeValue>;
 
   // setEdge(edge)
 
@@ -149,7 +149,7 @@ extern class Gpio {
    * Set GPIO interrupt generating edge
    * @param edge  - A string specifying the interrupt generating edge or edges for the GPIO.
    */
-  function setEdge(edge:Eithertype<String, EdgeValue>):Void;
+  function setEdge(edge:EitherType<String, EdgeValue>):Void;
 
   // activeLow()
   // Returns true or false indicating whether or not the values read from or written to the GPIO are inverted.
@@ -159,7 +159,7 @@ extern class Gpio {
 
   // invert - A boolean value specifying whether the values read from or written to the GPIO should be inverted. The interrupt generating edge for the GPIO also follow this this setting. The valid values for invert are true and false. Setting activeLow to true inverts. Optional, the default value is false.
   // Set GPIO activeLow setting.
-  function setActiveLow(invert) - Set GPIO activeLow setting
+  function setActiveLow(invert:Bool):Void; // - Set GPIO activeLow setting
 
   /**
    * Reverse the effect of exporting the GPIO to userspace.
