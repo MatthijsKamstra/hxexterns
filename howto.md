@@ -409,7 +409,9 @@ This is only supported in environments where require function is available, such
 `@:selfCall` Translates method calls into calling object directly
 
 
-Some JavaScript libraries favor instantiating classes without using the new keyword. To prevent the Haxe compiler outputting the new keyword when using a class, we can attach a `@:selfCall` metadata to its constructor. For example, when we instantiate the jQuery extern class above, `new JQuery()` will be outputted as `$()` instead of `new $()`. The `@:selfCall` metadata can also be attached to a method. In this case, the method will be interpreted as a direct call to the object, illustrated as follows:
+Some JavaScript libraries favor instantiating classes without using the new keyword. To prevent the Haxe compiler outputting the new keyword when using a class, we can attach a `@:selfCall` metadata to its constructor. For example, when we instantiate the jQuery extern class above, `new JQuery()` will be outputted as `$()` instead of `new $()`.
+
+The `@:selfCall` metadata can also be attached to a method. In this case, the method will be interpreted as a direct call to the object, illustrated as follows:
 
 ```
 extern class Functor {
