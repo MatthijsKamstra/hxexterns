@@ -1,6 +1,15 @@
-
 -cp test
 -cp src
+
+--each
+
 -main MainOnOff
 -js bin/MainOnOff.js
+# -dce no
+
+
+--next
+
+-main MainAirtable
+-js bin/MainAirtable.js
 # -dce no

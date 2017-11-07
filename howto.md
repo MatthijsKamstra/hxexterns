@@ -307,7 +307,7 @@ The second argument is a dotted-path, so we can load sub-objects in any hierarch
 var js_npm_HTTPServer = require("http").Server;
 ```
 
-If we need to load custom JavaScript objects in runtime, a js.Lib.require function can be used. It takes String as its only argument and returns Dynamic, so it is advised to be assigned to a strictly typed variable.
+If we need to load custom JavaScript objects in runtime, a `js.Lib.require` function can be used. It takes String as its only argument and returns Dynamic, so it is advised to be assigned to a strictly typed variable.
 
 
 
@@ -430,13 +430,42 @@ class Test {
 
 
 
+## constructor with return type
+
+```
+public static inline function construct(?fileName : String, ?options : {?autosave: Bool, ?async: Bool}) : LowDb {
+  return untyped require('lowdb')(fileName, options);
+}
+
+public static inline function query(db : LowDb, collection : String) : LowDb {
+  return untyped db(collection);
+}
+```
 
 
+```
+public static inline function construct(name : String) : DebugInstance
+  return new DebugInstance(name);
+```
 
 
+```
+var store = js.npm.ConnectMongo.construct( Session ,{ db : 'localhost' } );
+```
 
 
+```
+public static inline function construct() : Request {
+  untyped return require('request');
+}
+```
 
+
+```
+public inline function construct( ?doc : T ) : M {
+  return untyped __new__(this,doc);
+}
+```
 
 
 ## example extern
