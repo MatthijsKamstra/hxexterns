@@ -25,6 +25,7 @@ typedef Record = {
 	var fields: Dynamic;
 	function get(str:String):String;
 	function getId():String;
+	var _rawJson:Dynamic;
 };
 
 typedef AirtableError = {
@@ -37,7 +38,7 @@ typedef AirtableError = {
 @:jsRequire("airtable")
 extern class Airtable {
 
-	function new (config:Configure);
+	function new(config:Configure);
 	function base(key:String):AirtableBase;
 
 	// whatever
@@ -51,8 +52,13 @@ extern class AirtableBase {
   @:selfCall function new(key:String); // not sure this does the trick
   @:selfCall function construct(key:String) : AirtableBase;
 
+  function update(id:String, obj:Dynamic, cb:AirtableError -> Record -> Void):AirtableBase;
+  function replace(id:String, obj:Dynamic, cb:AirtableError -> Record -> Void):AirtableBase;
   function find(id:String, cb:AirtableError -> Record -> Void):AirtableBase;
+  function destroy(id:String, cb:AirtableError -> Record -> Void):AirtableBase;
+
   function create(obj:Dynamic, cb:AirtableError -> Dynamic -> Void):AirtableBase;
+
   function select(select:Select):AirtableBase;
   function eachPage(page: Array<Record> -> Function -> Void,done:String -> Void):AirtableBase;
 }

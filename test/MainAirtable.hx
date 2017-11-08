@@ -8,6 +8,7 @@ class MainAirtable {
 
   var AIRTABLE_API_KEY = 'YOUR_API_KEY';
   var AIRTABLE_KEY = 'foobar';
+  var AIRTABLE_NAME = 'Table1';
 
   public function new() {
     init0();
@@ -30,7 +31,7 @@ class MainAirtable {
   function init1(){
     // var Airtable = require('airtable');
     var base = new Airtable({apiKey: AIRTABLE_API_KEY}).base(AIRTABLE_KEY);
-    base.construct('slack links').select({
+    base.construct(AIRTABLE_NAME).select({
       // Selecting the first 3 records in Grid view:
       maxRecords: 3,
       view: "Grid view"
@@ -62,7 +63,7 @@ class MainAirtable {
   function init2() {
     // var Airtable = require('airtable');
     var base = new Airtable({apiKey: AIRTABLE_API_KEY}).base(AIRTABLE_KEY);
-    base.construct('slack links').create({
+    base.construct(AIRTABLE_NAME).create({
       "Name": "Matthijs",
       "Notes": "test"
     }, function(err, record) {
