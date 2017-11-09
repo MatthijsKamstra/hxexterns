@@ -5,7 +5,26 @@
 
 WIP, as is everything on the internet...
 
-my personal js externs
+my personal set of js externs
+
+
+I usually do the easy solution, but sometimes I try to create a complete set.
+
+Usually try to see if the transpiled js look simular to the "normal" export.
+
+Repo folder structure
+
+```
++ bin (Haxe transpile folder, should look like js)
++ examples (test files for [howto.md](howto.md) )
++ src (folder for the externs)
+	+ js (javascript)
+		+ npm (via npm installed js)
+		+ ....
+	+ node (not sure)
+	+ php (old folder with php externs)
++ test (folder with Haxe test files -> bin)
+```
 
 
 ## Haxe Externs

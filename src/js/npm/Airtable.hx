@@ -23,9 +23,9 @@ typedef Record = {
 	var id : String; // "recOdPbN6fHWp6snV",
 	var createdTime : String; // "2017-11-06T20:30:34.000Z"
 	var fields: Dynamic;
+	var _rawJson:Dynamic;
 	function get(str:String):String;
 	function getId():String;
-	var _rawJson:Dynamic;
 };
 
 typedef AirtableError = {
