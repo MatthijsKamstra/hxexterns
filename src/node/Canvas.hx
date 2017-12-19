@@ -7,7 +7,7 @@ import js.node.buffer.Buffer;
 
 
 // "canvas": "1.6.7",
-
+//  https://github.com/Automattic/node-canvas/blob/v1.x/examples/small-svg.js
 @:jsRequire("canvas")
 @:native('Canvas')
 extern class Canvas extends js.html.CanvasElement {
