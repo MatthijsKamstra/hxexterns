@@ -75,14 +75,14 @@ extern class MyExtern {
 }
 ```
 
-But if you would transpile this extern you would end up with ([haxe](examples/src/TestMyExtern.hx)) [js](examples/bin/TestMyExtern.js)
+But if you would transpile this extern you would end up with ([haxe](examples/src/TestMyExtern.hx) source) [js](examples/bin/TestMyExtern.js) source.
 
 
 ```js
 var myExtern = new js.npm.MyExtern();
 ```
 
-Not something you would like to have: to fix this check `@:native`
+It's no very likely you will have a javascript that will use that package structure (because js doesn't have packages). Not something you would like to have: to fix this check `@:native`
 
 
 ## @:native
@@ -123,21 +123,23 @@ var myExtern = new FOO.MyFooExtern();
 ```
 
 
-You have more controle over the path. Plus you can use paths with all caps.
+This way you have more controle over the path. Plus you can use paths with all caps.
 
-That is not possible with Haxe: a package with caps
+Normally is that not possible with Haxe: a package with caps
 
 - `FOO.test` is not possible
 - `Foo.test` is not possible
 - `foo.test` is possible
 
 
+So if you run into that path (three.js would be a good example) you can use `@:native` to fix that.
+
 What is a good example: Pixi and Three.js
 
 **[pixi](https://github.com/pixijs/pixi-haxe/blob/dev/src/pixi/core/sprites/Sprite.hx)**
 
 ```js
-// this is how javascript wants the call
+// this is how traditional javascript creates the call
 var sprite = new PIXI.Sprite();
 ```
 
@@ -157,6 +159,8 @@ import pixi.core.sprites.Sprite;
 //
 var sprite = new Sprite();
 ```
+
+So a little adjustment with Haxe is nescerry (you need to know where the sprites are located in which package) but the code will look more like Haxe code this way and the transpiled data will look like the code javascript wants.
 
 
 

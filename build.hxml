@@ -13,3 +13,18 @@
 -main MainAirtable
 -js bin/MainAirtable.js
 # -dce no
+
+--next
+
+-lib hxnodejs
+-main MainNodeCanvas
+-js bin/MainNodeCanvas.js
+# -dce no
+
+
+--next
+
+# -lib hxnodejs
+-main MainCast
+-js bin/MainCast.js
+# -dce no
