@@ -48,7 +48,11 @@ typedef ServiceType = {
 extern class Mdns {
 
 	@:selfCall
-	function new();
+	public function new ();
+
+  public function createBrowser(arguments:Dynamic):Dynamic;
+
+  public function tcp(arguments:String):Dynamic;
 }
 
 

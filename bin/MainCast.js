@@ -2,14 +2,15 @@
 (function () { "use strict";
 var MainCast = function() {
 	var _gthis = this;
-	var mdns = js_npm_castv2client_Mdns();
-	this.browser = mdns.createBrowser(mdns.tcp("googlecast"));
-	this.browser.on("serviceUp",function(service) {
+	var mdns = require("mdns");
+	var browser = mdns.tcp("googlecast");
+	var browser1 = mdns.createBrowser(browser);
+	browser1.on("serviceUp",function(service) {
 		window.console.log("found device \"%s\" at %s:%d",service.name,service.addresses[0],service.port);
 		_gthis.ondeviceup(service.addresses[0]);
-		_gthis.browser.stop();
+		browser1.stop();
 	});
-	this.browser.start();
+	browser1.start();
 };
 MainCast.main = function() {
 	var app = new MainCast();
@@ -42,6 +43,5 @@ MainCast.prototype = {
 	}
 };
 var js_npm_castv2client_Client = require("castv2-client").Client;
-var js_npm_castv2client_Mdns = require("mdns");
 MainCast.main();
 })();

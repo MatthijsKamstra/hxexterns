@@ -22,4 +22,4 @@ implements npm.Package.Require<"mdns","">
 	public function createBrowser(arguments:Dynamic):Dynamic;
 
 	public function tcp(arguments:String):Dynamic;
-}		
+}
