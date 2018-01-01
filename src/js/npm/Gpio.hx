@@ -76,13 +76,12 @@ extern class Gpio {
    *   Note that most systems support readback of GPIOs configured as outputs. The readSync method can therefore be called for any GPIO, irrespective of whether it was configured as an input or an output. The Raspberry Pi and BeagleBone are examples of such systems.
    * @return    the number 0 or 1 to represent the state of the GPIO.
    */
-  function readSync():EitherType<Int,DirectionValue>;// - Read GPIO value synchronously
+  function readSync():EitherType<Int,DirectionValue>; // - Read GPIO value synchronously
 
   /**
    * Write GPIO value asynchronously
    * @param  value                            The number 0 or 1.
    * @param  ?callback    Error -> Void       An optional completion callback that gets one argument (err), where err is reserved for an error object.
-   * @return           [description]
    */
   function write(value:Int,?callback:Error -> Void):Void;
 
@@ -91,7 +90,6 @@ extern class Gpio {
    * writeSync(value)
    * Write GPIO value synchronously
    * @param  value - The number 0 or 1.
-   * @return       [description]
    */
   function writeSync(value:Int):Void;
 
