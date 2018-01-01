@@ -1,12 +1,59 @@
 # hxexterns
 
-
 ![](icon.png)
 
 WIP, as is everything on the internet...
 
 my personal set of js externs
 
+## What is in this included
+
+- chartjs
+- codemirror
+- npm
+	- castv2client
+	- Airtable
+	- NeDB
+	- Cheerio
+	- onoff
+	- Slack
+	- Spotify
+	- YoutubeNode
+	- PDFdocument
+	- QRcode
+	- svgtopdf
+	- TwitterFetcher
+
+
+
+----
+
+
+<https://github.com/fivdi/onoff#api>
+
+> GPIO access and interrupt detection with Node.js on Linux boards like the Raspberry Pi, C.H.I.P. or BeagleBone.
+> v1.1.8
+
+```
+npm install onoff
+```
+
+----
+
+
+<https://github.com/Belphemur/node-json-db>
+
+> A simple "database" that use JSON file for Node.JS.
+
+```
+npm install node-json-db --save
+```
+
+
+-----
+
+
+## how
 
 I usually do the easy solution, but sometimes I try to create a complete set.
 
@@ -29,7 +76,7 @@ Repo folder structure
 
 ## Haxe Externs
 
-What is the best way to start with this: read this [tutorial](howto.md)
+What is the best way to start with Haxe Externs: read this [tutorial](howto.md)
 
 
 
