@@ -42,11 +42,11 @@
 -js bin/MainCast.js
 # -dce no
 
---next
+# --next
 
--lib hxnodejs
--main MainPuppeteer
--js bin/MainPuppeteer.js
+# -lib hxnodejs
+# -main MainPuppeteer
+# -js bin/MainPuppeteer.js
 # -dce no
 
 --next
@@ -54,5 +54,12 @@
 -lib hxnodejs
 -main MainNodeJsonDB
 -js bin/MainNodeJsonDB.js
+# -dce no--next
+
+--next
+
+# -lib hxnodejs
+-main MainTabletop
+-js bin/MainTabletop.js
 # -dce no
 
