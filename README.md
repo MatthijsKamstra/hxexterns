@@ -2,29 +2,33 @@
 
 ![](icon.png)
 
-WIP, as is everything on the internet...
+WIP, as is everything is on the internet...
 
-my personal set of js externs
+**my personal set of JavaScript externs**
 
 ## What is in this included
 
-- chartjs
-- codemirror
-- npm
-	- castv2client
-	- Airtable
-	- NeDB
-	- Cheerio
-	- onoff
-	- Slack
-	- Spotify
-	- YoutubeNode
-	- PDFdocument
-	- QRcode
-	- svgtopdf
++ js
+	+ chartjs
+	+ codemirror
+	+ npm
+		+ castv2client
+		- [Airtable](https://www.npmjs.com/package/airtable) <https://github.com/airtable/airtable.js>
+		- Cheerio
+		- Gpio (onoff)
+		- NeDB
+		- NodeJsonDB
+		- SlackClient
+		- Spotify
+		- WebSocket
+		- Slack
+		- YoutubeDownloader
+		- YoutubeNode
+	- PDFDocument
+	- QRCode
+	- SVGtoPDF
+	- Tabletop
 	- TwitterFetcher
-
-
 
 ----
 
@@ -57,7 +61,7 @@ npm install node-json-db --save
 
 I usually do the easy solution, but sometimes I try to create a complete set.
 
-Usually try to see if the transpiled js look simular to the "normal" export.
+Usually try to see if the transpiled js look similar to the "normal" export.
 
 Repo folder structure
 
