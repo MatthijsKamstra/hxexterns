@@ -68,6 +68,7 @@ extern class Faker {
   static var helpers : FakerHelper;
   static var address : FakerAddress;
   static var random : FakerRandom;
+  static var image : FakerImage;
 
   static function seed (value:Int):Void;
 
@@ -139,4 +140,21 @@ extern class FakerAddress{
   public function latitude():String;
   public function longitude():String;
 }
+extern class FakerImage{
+  public function avatar():String;
+  public function imageUrl():String;
+  public function abstractImage():String;
+  public function animals():String;
+  public function business():String;
+  public function cats():String;
+  public function city():String;
+  public function food():String;
+  public function nightlife():String;
+  public function fashion():String;
+  public function people():String;
+  public function nature():String;
+  public function sports():String;
+  public function technics():String;
+  public function transport():String;
 
+}
