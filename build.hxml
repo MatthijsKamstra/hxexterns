@@ -63,3 +63,32 @@
 -js bin/MainTabletop.js
 # -dce no
 
+--next
+
+-main MainAwait
+-js bin/MainAwait.js
+# -dce no
+#
+#
+--next
+
+-main MainCroppie
+-js bin/MainCroppie.js
+# -dce no
+
+# --next
+
+# -lib hxnodejs
+# -main MainFaceRecognition
+# -js bin/MainFaceRecognition.js
+# -dce no
+#
+
+
+--next
+
+-lib hxnodejs
+-main MainFaker
+-js bin/MainFaker.js
+# -dce no
+

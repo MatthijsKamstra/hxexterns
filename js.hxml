@@ -1,0 +1,6 @@
+-cp test
+-cp src
+-lib hxnodejs
+
+-main MainFaceRecognition
+-js bin/MainFaceRecognition.js
