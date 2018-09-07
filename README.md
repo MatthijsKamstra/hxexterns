@@ -11,6 +11,11 @@ WIP, as is everything is on the internet...
 + js
 	+ chartjs
 	+ codemirror
+	+ firebase
+	+ html
+	+ node
+		+ mongodb
+		+ mongoose
 	+ npm
 		+ castv2client
 		- [Airtable](https://www.npmjs.com/package/airtable) <https://github.com/airtable/airtable.js>
@@ -24,18 +29,71 @@ WIP, as is everything is on the internet...
 		- Slack
 		- YoutubeDownloader
 		- YoutubeNode
+	+ typeform
+	- Croppie
 	- PDFDocument
 	- QRCode
 	- SVGtoPDF
 	- Tabletop
 	- TwitterFetcher
-	+ node
-		+ mongodb
-		+ mongoose
 ----
 
 Stole <https://github.com/wiggin77/HxMongoNode/blob/master/src/js/node/mongoose/Mongoose.hx>
 
+
+## how
+
+I usually go for the easy solution, but **sometimes** I try to create a complete set of externs.
+
+I try to make the transpiled js look similar to the "normal" way javascript works.
+
+Repo folder structure
+
+```
++ bin (Haxe transpile folder, should look like normal js)
++ examples (test files for [howto.md](howto.md) )
++ src (folder for the externs)
+	+ js (javascript)
+		+ npm (via npm installed js)
+		+ ....
+	+ node (not sure)
+	+ php (old folder with php externs)
++ test (folder with Haxe test files -> bin)
+```
+
+
+## Haxe Externs
+
+What is the best way to start with Haxe Externs: read this [tutorial](howto.md)
+
+
+## Haxelib
+
+__Use this at your own risk!__
+
+Most of it is #WIP
+
+Use this git directly
+
+```bash
+haxelib git hxexterns https://github.com/MatthijsKamstra/hxexterns.git
+```
+
+You can use this git repos as a development directory:
+
+```bash
+haxelib dev hxexterns path/to/folder
+```
+
+don't forget to add it to your build file
+
+```bash
+-lib hxexterns
+```
+
+
+
+## misc
 
 
 
@@ -61,54 +119,3 @@ npm install node-json-db --save
 
 
 -----
-
-
-## how
-
-I usually do the easy solution, but sometimes I try to create a complete set.
-
-Usually try to see if the transpiled js look similar to the "normal" export.
-
-Repo folder structure
-
-```
-+ bin (Haxe transpile folder, should look like js)
-+ examples (test files for [howto.md](howto.md) )
-+ src (folder for the externs)
-	+ js (javascript)
-		+ npm (via npm installed js)
-		+ ....
-	+ node (not sure)
-	+ php (old folder with php externs)
-+ test (folder with Haxe test files -> bin)
-```
-
-
-## Haxe Externs
-
-What is the best way to start with Haxe Externs: read this [tutorial](howto.md)
-
-
-
-## Haxelib
-
-__Use this at your own risk!__
-
-
-Use this git directly
-
-```bash
-haxelib git hxexterns https://github.com/MatthijsKamstra/hxexterns.git
-```
-
-You can use this git repos as a development directory:
-
-```bash
-haxelib dev hxexterns path/to/folder
-```
-
-don't forget to add it to your build file
-
-```bash
--lib hxexterns
-```
