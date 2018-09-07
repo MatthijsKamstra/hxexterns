@@ -53,13 +53,16 @@ zh_TW
 
 
 /**
- * not complete, jus the stuff I needed
- * Source: https://github.com/marak/Faker.js/
- * MyExtern.js v1.12
+ * Haxe externs for faker.js v4.1.0
+ * Project: https://github.com/marak/Faker.js/
+ * Definitions by:	Matthijs Kamstra aka [mck] <https://github.com/MatthijsKamstra>
+ * Definitions: <https://github.com/matthijskamstra/hxexterns>
+ *              <https://github.com/matthijskamstra/hx-mean>
  */
 @:native('faker')
 @:jsRequire("faker")
 extern class Faker {
+
   function new ();
 
   static var name : FakerName;
@@ -73,10 +76,10 @@ extern class Faker {
   static function seed (value:Int):Void;
 
   /**
-   * 	// sets locale to de
-		faker.setLocale("de");
-		// or
-		faker.locale = "de";
+   * // sets locale to de
+   * faker.setLocale("de");
+   * // or
+   * faker.locale = "de";
    */
   static var locale : EitherType<String,Locale>;
   static function setLocale(locale:EitherType<String,Locale>):Void;
@@ -84,15 +87,48 @@ extern class Faker {
 }
 
 extern class FakerName{
+  public function firstName():String;
+  public function lastName():String;
   public function findName():String;
+  public function jobTitle():String;
+  public function prefix():String;
+  public function suffix():String;
+  public function title():String;
+  public function jobDescriptor():String;
+  public function jobArea():String;
+  public function jobType():String;
 }
 
 extern class FakerInternet{
+  public function avatar():String;
   public function email():String;
+  public function exampleEmail():String;
+  public function userName():String;
+  public function protocol():String;
+  public function url():String;
+  public function domainName():String;
+  public function domainSuffix():String;
+  public function domainWord():String;
+  public function ip():String;
+  public function ipv6():String;
+  public function userAgent():String;
+  public function color():String;
+  public function mac():String;
+  public function password():String;
 }
 extern class FakerHelper{
-  public function createCard():String;
+  public function randomize():String;
+  public function slugify():String;
+  public function replaceSymbolWithNumber():String;
+  public function replaceSymbols():String;
+  public function shuffle():String;
+  public function mustache():String;
+  public function createCard():String; // really complex data
+  public function contextualCard():String;
+  public function userCard():String;
+  public function createTransaction():String;
 }
+
 extern class FakerCompany{
   public function suffixes():String;
   public function companyName():String;
@@ -108,11 +144,11 @@ extern class FakerCompany{
 }
 
 extern class FakerRandom{
-  public function number():String;
+  public function number():EitherType<String, Int>;
   public function arrayElement():String;
   public function objectElement():String;
   public function uuid():String;
-  public function boolean():String;
+  public function boolean():Bool;
   public function word():String;
   public function words():String;
   public function image():String;

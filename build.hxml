@@ -74,9 +74,14 @@
 
 -main MainCroppie
 -js bin/MainCroppie.js
-# -dce no
+# -dce no--next
 
-# --next
+--next
+
+-main MainJohnnyFive
+-js bin/MainJohnnyFive.js
+-dce full
+
 
 # -lib hxnodejs
 # -main MainFaceRecognition
