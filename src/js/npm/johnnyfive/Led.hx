@@ -21,15 +21,20 @@ typedef LedOption = {
 
 @:jsRequire('johnny-five','Led')
 extern class Led {
-	function new(option:haxe.extern.EitherType<Float, LedOption>):Void;
+
 	var id : String;
 	var pin : Float;
+
+	function new(option:haxe.extern.EitherType<Float, LedOption>):Void;
+
 	function on():Void;
 	function off():Void;
 	function toggle():Void;
 	function strobe(ms:Float):Void;
+
 	@:overload(function(ms:Float):Void { })
 	function blink():Void;
+
 	function brightness(val:Float):Void;
 	function fade(brightness:Float, ms:Float):Void;
 	function fadeIn(ms:Float):Void;

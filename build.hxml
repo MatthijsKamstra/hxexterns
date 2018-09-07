@@ -82,6 +82,12 @@
 -js bin/MainJohnnyFive.js
 -dce full
 
+--next
+
+-main MainFirebase
+-js bin/MainFirebase.js
+-dce full
+
 
 # -lib hxnodejs
 # -main MainFaceRecognition
