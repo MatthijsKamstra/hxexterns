@@ -53,6 +53,32 @@ extern class MyExtern {
 It might be a good idea to add some extra info like Haxe version, Externs based upon lib version, ...
 
 
+## Comment
+
+Although there is no rule, even not unwritten, that says you need to comment you externs.
+
+I seems to be running into a lot of old version of externs (say 2 / 3 years old). And I have no idea what version the externs are written.
+
+So for good form I introduce comments:
+
+```haxe
+/**
+ * Haxe externs for Johnny-Five v1.0
+ * Project: https://github.com/rwaldron/johnny-five
+ * Definitions by: Matthijs Kamstra aka [mck] <https://github.com/MatthijsKamstra>
+ * Definitions: <https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/johnny-five>
+ *          <https://github.com/MatthijsKamstra/hxexterns>
+ */
+```
+
+I "borrowed" this idea from Typescript DefinitelyTyped.
+
+The idea behind is, that after 2 years of inactivity a programmer should be able to determen if the externs are still useable or need a little adjustment.
+
+Tools to make that easier: url from original project and version.
+With the help of change files (if available) it should be easier to track down changes.
+
+
 
 ## Structure
 
