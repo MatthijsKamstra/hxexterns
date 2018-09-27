@@ -5,6 +5,9 @@ var MainJohnnyFive = function() {
 	this.init1();
 	this.init2();
 	this.init3();
+	this.init4();
+	this.init5();
+	this.init5a();
 };
 MainJohnnyFive.main = function() {
 	var app = new MainJohnnyFive();
@@ -46,9 +49,46 @@ MainJohnnyFive.prototype = {
 			});
 		});
 	}
+	,init4: function() {
+		var board = new js_npm_johnnyfive_Board();
+		board.on("ready",function() {
+			var button = new js_npm_johnnyfive_Button(2);
+			board.repl.inject({ button : button});
+			button.on("down",function() {
+				window.console.log("down");
+			});
+			button.on("hold",function() {
+				window.console.log("hold");
+			});
+			button.on("up",function() {
+				window.console.log("up");
+			});
+		});
+	}
+	,init5: function() {
+		var board = new js_npm_johnnyfive_Board();
+		board.on("ready",function() {
+			var buttons = new js_npm_johnnyfive_Buttons({ pins : [2,3,4,5,6], invert : true});
+			buttons.on("press",function(button) {
+				window.console.log("Pressed: ",button.pin);
+			});
+			buttons.on("release",function(button1) {
+				window.console.log("Released: ",button1.pin);
+			});
+		});
+	}
+	,init5a: function() {
+		var button1 = new js_npm_johnnyfive_Button(2);
+		var button2 = new js_npm_johnnyfive_Button(3);
+		var button3 = new js_npm_johnnyfive_Button(4);
+		new js_npm_johnnyfive_Buttons([2,3,4,5]);
+		new js_npm_johnnyfive_Buttons([{ pin : 2},{ pin : 3},{ pin : 4},{ pin : 5}]);
+		new js_npm_johnnyfive_Buttons([button1,button2,button3]);
+	}
 };
 var js_npm_johnnyfive_Board = require("johnny-five").Board;
 var js_npm_johnnyfive_Button = require("johnny-five").Button;
+var js_npm_johnnyfive_Buttons = require("johnny-five").Buttons;
 var js_npm_johnnyfive_Led = require("johnny-five").Led;
 MainJohnnyFive.main();
 })();

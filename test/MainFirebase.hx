@@ -3,6 +3,7 @@ package;
 import js.firebase.Firebase;
 import js.firebase.app.App;
 import js.firebase.*;
+import js.firebase.database.*;
 
 class MainFirebase {
 

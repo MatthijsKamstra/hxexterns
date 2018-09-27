@@ -142,6 +142,10 @@ class MainJohnnyFive {
 	}
 
 	function init5a(){
+		var button1 = new Button(2);
+		var button2 = new Button(3);
+		var button3 = new Button(4);
+
 		new Buttons([ 2, 3, 4, 5 ]);
 		new Buttons([ { pin: 2 }, { pin: 3 }, { pin: 4 }, { pin: 5 } ]);
 		new Buttons([ button1, button2, button3 ]);
