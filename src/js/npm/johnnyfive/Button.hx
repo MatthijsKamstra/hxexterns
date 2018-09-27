@@ -1,5 +1,6 @@
 package js.npm.johnnyfive;
 
+// http://johnny-five.io/api/button/#parameters
 typedef ButtonOption = {
 	var pin : haxe.extern.EitherType<Int, String>;
 	@:optional

@@ -4,6 +4,7 @@ var MainJohnnyFive = function() {
 	this.init0();
 	this.init1();
 	this.init2();
+	this.init3();
 };
 MainJohnnyFive.main = function() {
 	var app = new MainJohnnyFive();
@@ -12,6 +13,7 @@ MainJohnnyFive.prototype = {
 	init0: function() {
 		var board = new js_npm_johnnyfive_Board();
 		board.on("ready",function() {
+			window.console.log("Ready!");
 			var led = new js_npm_johnnyfive_Led(13);
 			led.blink(500);
 		});
@@ -31,6 +33,16 @@ MainJohnnyFive.prototype = {
 			});
 			button.on("release",function() {
 				window.console.log("Button released");
+			});
+		});
+	}
+	,init3: function() {
+		var board = new js_npm_johnnyfive_Board();
+		board.on("ready",function() {
+			var led = new js_npm_johnnyfive_Led(13);
+			led.on();
+			this.on("exit",function() {
+				led.off();
 			});
 		});
 	}
