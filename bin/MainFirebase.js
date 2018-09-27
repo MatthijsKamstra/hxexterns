@@ -10,6 +10,7 @@ var MainFirebase = function() {
 	this.init1();
 	this.init2();
 	this.init3();
+	this.init4();
 	this.init7();
 };
 MainFirebase.main = function() {
@@ -38,6 +39,11 @@ MainFirebase.prototype = {
 			console.log("test EventType.ChildMoved");
 		});
 	}
+	,init4: function() {
+		var userId = this.firebase.auth().currentUser.uid;
+		return this.firebase.database().ref("/users/" + userId).once(null,null,"value").then(function(snapshot) {
+		});
+	}
 	,init7: function() {
 		this.firebase.database().ref("users/" + this.userId).set({ username : this.name, email : this.email, profile_picture : this.imageUrl},function(error) {
 			if(error != null) {
@@ -48,5 +54,6 @@ MainFirebase.prototype = {
 		});
 	}
 };
+var firebase = require("firebase");
 MainFirebase.main();
 })();

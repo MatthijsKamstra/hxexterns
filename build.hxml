@@ -87,6 +87,7 @@
 -main MainFirebase
 -js bin/MainFirebase.js
 -dce full
+-D nodejs
 
 
 # -lib hxnodejs

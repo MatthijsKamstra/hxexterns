@@ -18,6 +18,15 @@ typedef FirebaseObj = {
  * Definitions: <https://github.com/jefvel/haxe-firebase>
  *    			<https://github.com/MatthijsKamstra/hxexterns>
  */
+
+/**
+ * set in build.hxml the value `-D nodejs` to use the module you installed via
+ * `npm install firebase --save`
+ * default is for browser use
+ */
+#if nodejs
+@:jsRequire("firebase")
+#end
 @:native("firebase")
 extern class Firebase {
 	// static function __init__():Void {

@@ -22,6 +22,7 @@ extern class Query {
 	public function off(?eventType:EventType, ?callback:DataSnapshot -> Void, ?context:Dynamic):Void;
 
 	@:overload(function(eventType:haxe.extern.EitherType<EventType,String>, callback:String -> Void, ?cancelCallbackContext:Dynamic, ?context:Dynamic):DataSnapshot { })
+	@:overload(function(eventType:haxe.extern.EitherType<EventType,String>, callback:DataSnapshot -> Void, ?cancelCallbackContext:Dynamic, ?context:Dynamic):DataSnapshot { })
 	public function on(?eventType:EventType, callback:DataSnapshot -> String -> Void, ?cancelCallbackContext:Dynamic, ?context:Dynamic):DataSnapshot;
 	public function once(?eventType:EventType, ?successCallback:DataSnapshot -> String -> Void, ?failureCallbackOrContext:Dynamic, ?context:Dynamic):js.firebase.Promise<Dynamic>;
 
