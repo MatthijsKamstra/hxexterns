@@ -14,10 +14,10 @@ MainJohnnyFive.main = function() {
 };
 MainJohnnyFive.prototype = {
 	init0: function() {
-		var board = new js_npm_johnnyfive_Board();
+		var board = new Board();
 		board.on("ready",function() {
 			window.console.log("Ready!");
-			var led = new js_npm_johnnyfive_Led(13);
+			var led = new Led(13);
 			led.blink(500);
 		});
 	}
@@ -25,7 +25,7 @@ MainJohnnyFive.prototype = {
 		var button = new js_npm_johnnyfive_Button("A0");
 	}
 	,init2: function() {
-		var board = new js_npm_johnnyfive_Board();
+		var board = new Board();
 		board.on("ready",function() {
 			var button = new js_npm_johnnyfive_Button(2);
 			button.on("hold",function() {
@@ -40,9 +40,9 @@ MainJohnnyFive.prototype = {
 		});
 	}
 	,init3: function() {
-		var board = new js_npm_johnnyfive_Board();
+		var board = new Board();
 		board.on("ready",function() {
-			var led = new js_npm_johnnyfive_Led(13);
+			var led = new Led(13);
 			led.on();
 			this.on("exit",function() {
 				led.off();
@@ -50,7 +50,7 @@ MainJohnnyFive.prototype = {
 		});
 	}
 	,init4: function() {
-		var board = new js_npm_johnnyfive_Board();
+		var board = new Board();
 		board.on("ready",function() {
 			var button = new js_npm_johnnyfive_Button(2);
 			board.repl.inject({ button : button});
@@ -66,7 +66,7 @@ MainJohnnyFive.prototype = {
 		});
 	}
 	,init5: function() {
-		var board = new js_npm_johnnyfive_Board();
+		var board = new Board();
 		board.on("ready",function() {
 			var buttons = new js_npm_johnnyfive_Buttons({ pins : [2,3,4,5,6], invert : true});
 			buttons.on("press",function(button) {
@@ -86,9 +86,9 @@ MainJohnnyFive.prototype = {
 		new js_npm_johnnyfive_Buttons([button1,button2,button3]);
 	}
 };
-var js_npm_johnnyfive_Board = require("johnny-five").Board;
+var Board = require("johnny-five").Board;
 var js_npm_johnnyfive_Button = require("johnny-five").Button;
 var js_npm_johnnyfive_Buttons = require("johnny-five").Buttons;
-var js_npm_johnnyfive_Led = require("johnny-five").Led;
+var Led = require("johnny-five").Led;
 MainJohnnyFive.main();
 })();

@@ -33,6 +33,7 @@ typedef ButtonOptions = {
  *    			<https://github.com/MatthijsKamstra/hxexterns>
  */
 @:jsRequire('johnny-five','Buttons')
+@:native('Buttons')
 extern class Buttons {
 
 	 @:overload(function(collection:Array<Int>):Void { })

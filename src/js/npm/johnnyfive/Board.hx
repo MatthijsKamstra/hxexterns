@@ -36,7 +36,7 @@ typedef BoardOption = {
  *    			<https://github.com/MatthijsKamstra/hxexterns>
  */
 @:jsRequire('johnny-five','Board')
-// @:native('five.Board')
+@:native('Board')
 extern class Board {
 	function new(?option:BoardOption):Void;
 	var io : Dynamic;

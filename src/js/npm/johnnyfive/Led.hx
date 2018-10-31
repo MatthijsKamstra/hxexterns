@@ -1,4 +1,7 @@
 package js.npm.johnnyfive;
+
+import haxe.extern.EitherType;
+
 /**
  * Haxe externs for Johnny-Five v1.0
  * Project: https://github.com/rwaldron/johnny-five
@@ -20,12 +23,13 @@ typedef LedOption = {
 };
 
 @:jsRequire('johnny-five','Led')
+@:native('Led')
 extern class Led {
 
 	var id : String;
 	var pin : Float;
 
-	function new(option:haxe.extern.EitherType<Float, LedOption>):Void;
+	function new(option:EitherType<String, EitherType<Float, LedOption>>):Void;
 
 	function on():Void;
 	function off():Void;

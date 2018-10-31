@@ -30,6 +30,7 @@ typedef ButtonOption = {
  *    			<https://github.com/MatthijsKamstra/hxexterns>
  */
 @:jsRequire('johnny-five','Button')
+@:native('Button')
 extern class Button {
 
 	function new(pin:haxe.extern.EitherType<Int, haxe.extern.EitherType<String, ButtonOption>>):Void;
