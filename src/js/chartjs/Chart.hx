@@ -151,7 +151,7 @@ typedef ChartDataSets = {
 	// @:optional
 	// var borderSkipped : PositionType;
 	@:optional
-	var data : haxe.extern.EitherType<Array<Float>, EitherType<Array<Int>, Array<ChartPoint>>>;
+	var data : haxe.extern.EitherType<Array<Float>, EitherType<Array<Int>, EitherType<Array<Dynamic>, Array<ChartPoint>>>>;
 	@:optional
 	var fill : haxe.extern.EitherType<Bool, haxe.extern.EitherType<Float, String>>;
 	@:optional
@@ -206,11 +206,11 @@ typedef ChartDataSets = {
 
 typedef ChartPoint = {
 	@:optional
-	var x : haxe.extern.EitherType<Float, haxe.extern.EitherType<String, Date>>;
+	var x : haxe.extern.EitherType<Float, haxe.extern.EitherType<Int, haxe.extern.EitherType<String, Date>>>;
 	@:optional
-	var y : haxe.extern.EitherType<Float, haxe.extern.EitherType<String, Date>>;
+	var y : haxe.extern.EitherType<Float, haxe.extern.EitherType<Int, haxe.extern.EitherType<String, Date>>>;
 	@:optional
-	var r : Float;
+	var r :  haxe.extern.EitherType<Float, Int>;
 	@:optional
 	var t : haxe.extern.EitherType<Float, haxe.extern.EitherType<String, Date>>;
 };
