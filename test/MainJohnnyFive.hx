@@ -17,6 +17,7 @@ class MainJohnnyFive {
 		init4();
 		init5();
 		init5a();
+		init6();
 	}
 
 	// http://johnny-five.io/examples/
@@ -151,6 +152,31 @@ class MainJohnnyFive {
 		new Buttons([ button1, button2, button3 ]);
 	}
 
+	/**
+	 * @source: 		http://johnny-five.io/examples/button-pullup/
+	 */
+	function init6(){
+		var board = new Board();
+
+		board.on("ready", function() {
+
+			var button = new Button(cast {
+				pin: 2,
+				isPullup: true
+			});
+
+			var led = new Led(13);
+
+			button.on("down", function(value) {
+				led.on();
+			});
+
+			button.on("up", function() {
+				led.off();
+			});
+
+		});
+	}
 
 	static public function main() {
 		var app = new MainJohnnyFive();

@@ -36,9 +36,10 @@ typedef ButtonOptions = {
 @:native('Buttons')
 extern class Buttons {
 
-	 @:overload(function(collection:Array<Int>):Void { })
-	 @:overload(function(collection:Array<Button>):Void { })
-	 @:overload(function(collection:Array<Dynamic>):Void { })
+	@:overload(function(collection:Array<String>):Void { })
+	@:overload(function(collection:Array<Int>):Void { })
+	@:overload(function(collection:Array<Button>):Void { })
+	@:overload(function(collection:Array<Dynamic>):Void { })
 	function new(collection:ButtonOptions):Void;
 
 	// var id : String;
