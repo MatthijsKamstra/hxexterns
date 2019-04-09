@@ -8,6 +8,7 @@ var MainJohnnyFive = function() {
 	this.init4();
 	this.init5();
 	this.init5a();
+	this.init6();
 };
 MainJohnnyFive.main = function() {
 	var app = new MainJohnnyFive();
@@ -22,12 +23,12 @@ MainJohnnyFive.prototype = {
 		});
 	}
 	,init1: function() {
-		var button = new js_npm_johnnyfive_Button("A0");
+		var button = new Button("A0");
 	}
 	,init2: function() {
 		var board = new Board();
 		board.on("ready",function() {
-			var button = new js_npm_johnnyfive_Button(2);
+			var button = new Button(2);
 			button.on("hold",function() {
 				window.console.log("Button held");
 			});
@@ -52,7 +53,7 @@ MainJohnnyFive.prototype = {
 	,init4: function() {
 		var board = new Board();
 		board.on("ready",function() {
-			var button = new js_npm_johnnyfive_Button(2);
+			var button = new Button(2);
 			board.repl.inject({ button : button});
 			button.on("down",function() {
 				window.console.log("down");
@@ -68,7 +69,7 @@ MainJohnnyFive.prototype = {
 	,init5: function() {
 		var board = new Board();
 		board.on("ready",function() {
-			var buttons = new js_npm_johnnyfive_Buttons({ pins : [2,3,4,5,6], invert : true});
+			var buttons = new Buttons({ pins : [2,3,4,5,6], invert : true});
 			buttons.on("press",function(button) {
 				window.console.log("Pressed: ",button.pin);
 			});
@@ -78,17 +79,30 @@ MainJohnnyFive.prototype = {
 		});
 	}
 	,init5a: function() {
-		var button1 = new js_npm_johnnyfive_Button(2);
-		var button2 = new js_npm_johnnyfive_Button(3);
-		var button3 = new js_npm_johnnyfive_Button(4);
-		new js_npm_johnnyfive_Buttons([2,3,4,5]);
-		new js_npm_johnnyfive_Buttons([{ pin : 2},{ pin : 3},{ pin : 4},{ pin : 5}]);
-		new js_npm_johnnyfive_Buttons([button1,button2,button3]);
+		var button1 = new Button(2);
+		var button2 = new Button(3);
+		var button3 = new Button(4);
+		new Buttons([2,3,4,5]);
+		new Buttons([{ pin : 2},{ pin : 3},{ pin : 4},{ pin : 5}]);
+		new Buttons([button1,button2,button3]);
+	}
+	,init6: function() {
+		var board = new Board();
+		board.on("ready",function() {
+			var button = new Button({ pin : 2, isPullup : true});
+			var led = new Led(13);
+			button.on("down",function(value) {
+				led.on();
+			});
+			button.on("up",function() {
+				led.off();
+			});
+		});
 	}
 };
 var Board = require("johnny-five").Board;
-var js_npm_johnnyfive_Button = require("johnny-five").Button;
-var js_npm_johnnyfive_Buttons = require("johnny-five").Buttons;
+var Button = require("johnny-five").Button;
+var Buttons = require("johnny-five").Buttons;
 var Led = require("johnny-five").Led;
 MainJohnnyFive.main();
 })();
