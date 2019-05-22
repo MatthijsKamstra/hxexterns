@@ -64,7 +64,12 @@ extern class JohnnyFive {
 	}
 }
 
-@:jsRequire("raspi-io")
+/**
+ * if you get TypeError: raspi is not a constructor
+ * source: https://dissenter.com/comment/5cb473938451d26cab2469ec
+ */
+// @:jsRequire("raspi-io")
+@:jsRequire("raspi-io", "RaspiIO")
 @:native('Raspi')
 extern class Raspi {
 	public function new( ) : Void;
