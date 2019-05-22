@@ -14,7 +14,7 @@ Good list/collection externs to start with:
 - <https://github.com/clemos/haxe-js-kit>
 - <https://github.com/ExternKit>
 
-Some excelent examples:
+Some excellent examples:
 
 - Electron: <https://github.com/fponticelli/hxelectron>
 - moment.js: <https://github.com/ExternKit/extern-js-moment>
@@ -23,7 +23,7 @@ Some excelent examples:
 - Three.js: <https://bitbucket.org/yar3333/haxe-threejs>
 
 
-Typescript to Haxe convertor
+Typescript to Haxe converter
 
 - <https://github.com/Simn/ts2hx>
 - <https://github.com/francescoagati/DefinitelyTyped.hx>
@@ -73,7 +73,7 @@ So for good form I introduce comments:
 
 I "borrowed" this idea from Typescript DefinitelyTyped.
 
-The idea behind is, that after 2 years of inactivity a programmer should be able to determen if the externs are still useable or need a little adjustment.
+The idea behind is, that after 2 years of inactivity a programmer should be able to determent if the externs are still usable or need a little adjustment.
 
 Tools to make that easier: url from original project and version.
 With the help of change files (if available) it should be easier to track down changes.
@@ -108,7 +108,7 @@ But if you would transpile this extern you would end up with ([haxe](examples/sr
 var myExtern = new js.npm.MyExtern();
 ```
 
-It's no very likely you will have a javascript that will use that package structure (because js doesn't have packages). Not something you would like to have: to fix this check `@:native`
+It's no very likely you will have a JavaScript that will use that package structure (because js doesn't have packages). Not something you would like to have: to fix this check `@:native`
 
 
 ## @:native
@@ -149,7 +149,7 @@ var myExtern = new FOO.MyFooExtern();
 ```
 
 
-This way you have more controle over the path. Plus you can use paths with all caps.
+This way you have more control over the path. Plus you can use paths with all caps.
 
 Normally is that not possible with Haxe: a package with caps
 
@@ -165,7 +165,7 @@ What is a good example: Pixi and Three.js
 **[pixi](https://github.com/pixijs/pixi-haxe/blob/dev/src/pixi/core/sprites/Sprite.hx)**
 
 ```js
-// this is how traditional javascript creates the call
+// this is how traditional JavaScript creates the call
 var sprite = new PIXI.Sprite();
 ```
 
@@ -186,7 +186,7 @@ import pixi.core.sprites.Sprite;
 var sprite = new Sprite();
 ```
 
-So a little adjustment with Haxe is nescerry (you need to know where the sprites are located in which package) but the code will look more like Haxe code this way and the transpiled data will look like the code javascript wants.
+So a little adjustment with Haxe is necessary (you need to know where the sprites are located in which package) but the code will look more like Haxe code this way and the transpiled data will look like the code JavaScript wants.
 
 
 
@@ -194,7 +194,7 @@ So a little adjustment with Haxe is nescerry (you need to know where the sprites
 
 
 ```js
-// this is how javascript wants the call
+// this is how JavaScript wants the call
 var scene = new THREE.Scene();
 ```
 
@@ -223,7 +223,7 @@ The package and class name of the extern class should be the same as defined in 
 
 ## simple example
 
-Lets take a simple javscript example and make a Haxe extern for that
+Lets take a simple JavaScript example and make a Haxe extern for that
 
 [source](https://matthijskamstra.github.io/haxejs/05externs/example.html)
 
@@ -306,7 +306,7 @@ This feature can be enabled by specifying `@:jsRequire` metadata for the extern 
 
 `@:jsRequire`
 
-> Generate javascript module require expression for given extern
+> Generate JavaScript module require expression for given extern
 
 In case our extern class represents an object within a module, second @:jsRequire argument specifies an object to load from a module:
 
@@ -317,7 +317,7 @@ extern class FS {
 }
 ```
 
-will look in javascript like this
+will look in JavaScript like this
 
 ```js
 var js_npm_FS = require("fs");
