@@ -19,7 +19,7 @@ abstract ChartType(String) {
 }
 
 /**
- * Haxe externs for Chart.js v2.7.2
+ * Haxe externs for Chart.js v2.8.0
  * Project: http://www.chartjs.org/
  * Definitions by: 	Matthijs Kamstra aka [mck] <https://github.com/MatthijsKamstra>
  * Definitions: <https://github.com/MatthijsKamstra/hxexterns>
@@ -99,10 +99,9 @@ typedef ChartOptions = {
 	// function onClick(?event:MouseEvent, ?activeElements:Array<{ }>):Dynamic;
 	// @:optional
 	// function onResize(_this:Chart, newSize:ChartSize):Void;
-	// @:optional
-	// var title : ChartTitleOptions;
-	// @:optional
-	// var legend : ChartLegendOptions;
+	@:optional var title : ChartTitleOptions;
+
+	@:optional var legend : ChartLegendOptions;
 	// @:optional
 	// var tooltips : ChartTooltipOptions;
 	// @:optional
@@ -130,6 +129,37 @@ typedef ChartOptions = {
 	@:optional
 	var plugins : { };
 };
+
+// https://www.chartjs.org/docs/latest/configuration/title.html#title-configuration
+typedef ChartTitleOptions = {
+	// WIP
+	@:optional var display : Bool;
+	@:optional var text : EitherType<String,Array<String>>;
+// 	display	boolean	false	Is the title shown?
+// position	string	'top'	Position of title. more...
+// fontSize	number	12	Font size.
+// fontFamily	string	"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"	Font family for the title text.
+// fontColor	Color	'#666'	Font color.
+// fontStyle	string	'bold'	Font style.
+// padding	number	10	Number of pixels to add above and below the title text.
+// lineHeight	number|string	1.2	Height of an individual line of text. See MDN.
+// text	string|string[]	''	Title text to display. If specified as an array, text is rendered on multiple lines.
+}
+
+
+// https://www.chartjs.org/docs/latest/configuration/legend.html#configuration-options
+typedef ChartLegendOptions = {
+// display	boolean	true	Is the legend shown?
+// position	string	'top'	Position of the legend. more...
+// fullWidth	boolean	true	Marks that this box should take the full width of the canvas (pushing down other boxes). This is unlikely to need to be changed in day-to-day use.
+// onClick	function		A callback that is called when a click event is registered on a label item.
+// onHover	function		A callback that is called when a 'mousemove' event is registered on top of a label item.
+// onLeave	function		A callback that is called when a 'mousemove' event is registered outside of a previously hovered label item.
+// reverse	boolean	false	Legend will show datasets in reverse order.
+// labels	object		See the Legend Label Configuration section below.
+
+}
+
 
 typedef ChartDataSets = {
 	@:optional

@@ -14,6 +14,7 @@ package js.firebase;
 	public function reject(value:Dynamic):Promise<T>;
 	public function resolve(value:T):Promise<T>;
 
-	//public function catch(onReject:Dynamic -> Void):Dynamic;
+	@:native('catch')
+	public function catch_(onReject:Dynamic -> Void):Dynamic;
 
 }
