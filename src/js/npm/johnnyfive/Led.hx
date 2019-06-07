@@ -43,6 +43,7 @@ extern class Led {
 	function fade(brightness:Float, ms:Float):Void;
 	function fadeIn(ms:Float):Void;
 	function fadeOut(ms:Float):Void;
+	@:overload(function():Void { })
 	function pulse(ms:Float):Void;
 	function stop():Led;
 	// function stop(?ms:Float):Void; ???
