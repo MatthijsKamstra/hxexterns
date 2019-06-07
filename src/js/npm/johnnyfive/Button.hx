@@ -42,6 +42,7 @@ extern class Button {
 	var holdtime : Int;
 
 	@:overload(function(event:String, cb:Int -> Void):Button { })
+	@:overload(function(event:ButtonEvents, cb:Int -> Void):Button { })
 	@:overload(function(event:ButtonEvents, cb:Void -> Void):Button { })
 	function on(event:String, cb:Void -> Void):Button;
 }
