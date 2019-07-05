@@ -103,4 +103,10 @@
 -main MainFaker
 -js bin/MainFaker.js
 # -dce no
+#
+--next
+
+-main MainDatGui
+-js bin/MainDatGui.js
+-dce full
 
