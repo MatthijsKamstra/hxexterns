@@ -11,6 +11,8 @@ WIP, as is everything is on the internet...
 + js
 	+ chartjs
 	+ codemirror
+	+ dat
+		+ gui
 	+ firebase
 	+ html
 	+ node
