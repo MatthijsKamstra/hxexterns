@@ -1,6 +1,6 @@
 package js.dat.controllers;
-import haxe.Json;
 
+import haxe.Json;
 
 /**
  * dat-gui JavaScript Controller Library
@@ -14,14 +14,16 @@ import haxe.Json;
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  */
-
 /**
  * @author Haxe externs: Mathieu Anthoine <anthoine.mathieu@gmail.com>
  */
-
+/**
+ * needs more love:
+ *
+ * https://github.com/dataarts/dat.gui/blob/master/API.md#Controller
+ */
 @:native("dat.controllers.Controller")
-extern class Controller
-{
+extern class Controller {
 	/**
 	 * @class An "abstract" class that represents a given property of an object.
 	 *
@@ -36,37 +38,47 @@ extern class Controller
 	 * @param value minimum value
 	 * @return the Controller instance
 	 */
-	function min(value:Float) : Controller;
+	function min(value:Float):Controller;
 
 	/**
 	 *
 	 * @param value maximum value
 	 * @return the Controller instance
 	 */
-	function max(value:Float) : Controller;
+	function max(value:Float):Controller;
 
 	/**
 	 *
 	 * @param value increment amount
 	 * @return the Controller instance
 	 */
-	function step(value:Float) : Controller;
+	function step(value:Float):Controller;
 
 	/**
 	 * Fires on every change, drag, keypress, etc.
 	 * @param {Dynamic} Function to execute
 	 */
-	function onChange(callBack:Dynamic) : Void;
+	function onChange(callBack:Dynamic):Void;
 
 	/**
 	 * Fires when a controller loses focus.
 	 * @param {Dynamic} Function to execute
 	 */
-	function onFinishChange(callBack:Dynamic) : Void;
+	function onFinishChange(callBack:Dynamic):Void;
 
 	/**
 	 * listen to a Controller to react to changes made outside of the GUI
 	 */
-	function listen() : Void;
+	function listen():Void;
 
+	/**
+	 * Removes the controller from its parent GUI.
+	 */
+	function remove():Void;
+
+	/**
+	 * Sets the name of the controller.
+	 * @param string name of the function
+	 */
+	function name(name:String):Void;
 }
