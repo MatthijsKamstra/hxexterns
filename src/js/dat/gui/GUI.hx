@@ -55,7 +55,8 @@ extern class GUI {
 	@:overload(function(object:Dynamic, property:String, min:Float, max:Float):Controller {})
 	@:overload(function(object:Dynamic, property:String, values:Array<String>):Controller {})
 	@:overload(function(object:Dynamic, property:String, values:Dynamic):Controller {})
-	function add(object:Dynamic, ?property:String):Controller;
+	@:overload(function(object:Dynamic, ?property:String):Controller {})
+	function add(object:Dynamic, property:String):Controller;
 
 	// @:overload(function(target:Dynamic, propName:String, status:Bool):Controller { })
 	// @:overload(function(target:Dynamic, propName:String, items:Array<String>):Controller { })

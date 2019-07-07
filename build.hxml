@@ -108,5 +108,6 @@
 
 -main MainDatGui
 -js bin/MainDatGui.js
--dce full
+# -dce no
+# -dce full
 
