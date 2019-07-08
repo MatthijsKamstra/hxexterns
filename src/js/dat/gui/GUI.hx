@@ -48,15 +48,19 @@ extern class GUI {
 	 * Add a controller in the GUI instance
 	 *
 	 * @method add
-	 * @param {Dynamic} object The object to be manipulated
-	 * @param {string} property The name of the property to be manipulated
-	 * @returns {Controller} The new controller that was added.
+	 *
+	 * @param object			The object to be manipulated
+	 * @param property			The name of the property to be manipulated
+	 * @param min				(optional) minimal value
+	 * @param max				(optional) maximum value
+	 * @param step				(optional) steps between min and max value
+	 * @return Controller		The new controller that was added.
 	 */
 	@:overload(function(object:Dynamic, property:String, min:Float, max:Float):Controller {})
 	@:overload(function(object:Dynamic, property:String, values:Array<String>):Controller {})
 	@:overload(function(object:Dynamic, property:String, values:Dynamic):Controller {})
 	@:overload(function(object:Dynamic, ?property:String):Controller {})
-	function add(object:Dynamic, property:String):Controller;
+	function add(object:Dynamic, property:String, ?min:Float, ?max:Float, ?step:Float):Controller;
 
 	// @:overload(function(target:Dynamic, propName:String, status:Bool):Controller { })
 	// @:overload(function(target:Dynamic, propName:String, items:Array<String>):Controller { })
