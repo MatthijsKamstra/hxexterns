@@ -5,7 +5,6 @@ import js.dat.controllers.*;
 import js.Browser.*;
 
 class GUIX extends js.dat.gui.GUI {
-
 	/**
 	 * the HxGUI is an Haxe wrapper for dat.GUI
 	 * It's to check the object you want to manipulate via the Haxe compiler and don't get errors on run time
@@ -16,10 +15,10 @@ class GUIX extends js.dat.gui.GUI {
 		super(option);
 	}
 
-	static function myHandler( msg : String, stack : Array<String> ) {
-        js.Browser.alert(msg);
-        return true;
-    }
+	// static function myHandler( msg : String, stack : Array<String> ) {
+	//     js.Browser.alert(msg);
+	//     return true;
+	// }
 
 	/**
 	 * Default add still works, but there is no compile checking.
@@ -38,7 +37,7 @@ class GUIX extends js.dat.gui.GUI {
 	 * @param property 		(optional) The name of the property to be manipulated
 	 * @returns The new controller that was added.
 	 */
-	override public function add(object:Dynamic, property:String):Controller {
+	override public function add(object:Dynamic, property:String, ?min:Float, ?max:Float, ?step:Float):Controller {
 		// if (_class == null && property == null) {
 		// 	console.warn('Set scope first OR add a string property');
 		// 	return null;
@@ -50,16 +49,29 @@ class GUIX extends js.dat.gui.GUI {
 		var fieldsArr = Type.getClassFields(object);
 		for (i in 0...fieldsArr.length) {
 			var field = fieldsArr[i];
-			trace(field);
+			// trace(field);
+			/**
+			 * looking for the same value... not the best way to indentify vars
+			 */
 			if (Reflect.getProperty(object, field) == property) {
-				trace('>>>>>> found it ${object}, ${field}, ${property}');
+				// trace('>>>>>> found it ${object}, ${field}, ${property}');
 				isProperty = true;
 			};
+			// check the fields in the object vs the property given...
+			// not extremely helpfull in compile time
+			if (field == property) {
+				// trace('>>>>>> found it ${object}, ${field}, ${property}');
+				isProperty = true;
+			}
 		}
-		if(!isProperty){
-			throw 'mispoes';
+		if (!isProperty) {
+			try {
+				throw 'In ${object} there is no property "${property}"!\n${object}.${property}';
+			} catch (e:Dynamic) {
+				js.Browser.alert('$e');
+			}
 		}
-		return super.add(object, property);
+		return super.add(object, property, min, max, step);
 
 		// 		for (i in 0...Type.getClassFields(_class).length) {
 		// 	var field = Type.getClassFields(_class)[i];
@@ -87,7 +99,6 @@ class GUIX extends js.dat.gui.GUI {
 	// public function _addColor(object:Dynamic, ?property:String):ColorController {
 	// 	return gui.addColor(object, property);
 	// };
-
 	/**
 	 * [Description]
 	 * @param name
