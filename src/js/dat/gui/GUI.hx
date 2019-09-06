@@ -18,6 +18,8 @@ import haxe.Json;
  */
 /**
  * @author Haxe externs: Mathieu Anthoine <anthoine.mathieu@gmail.com>
+ *
+ * @example: https://github.com/MatthijsKamstra/hxexterns/blob/master/test/MainDatGui.hx
  */
 /**
  * Haxe externs for dat.GUI v0.7.6
