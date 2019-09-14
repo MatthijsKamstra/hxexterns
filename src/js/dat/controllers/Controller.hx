@@ -69,16 +69,33 @@ extern class Controller {
 	/**
 	 * listen to a Controller to react to changes made outside of the GUI
 	 */
-	function listen():Void;
+	// function listen():Void;
+	function listen():Controller;
 
 	/**
 	 * Removes the controller from its parent GUI.
 	 */
-	function remove():Void;
+	// function remove():Void;
+	function remove():Controller;
 
 	/**
 	 * Sets the name of the controller.
 	 * @param string name of the function
 	 */
 	function name(name:String):Void;
+
+	// new Controller(object, property)
+	var domElement:js.html.DOMElement;
+	var object:{};
+	var property:String;
+	function options(options:Dynamic):Controller;
+	// .name(name) ⇒ Controller
+	// .listen() ⇒ Controller
+	// .remove() ⇒ Controller
+	// .onChange(fnc) ⇒ Controller
+	// .onFinishChange(fnc) ⇒ Controller
+	function setValue(newValue:Dynamic):Void;
+	function getValue():Dynamic;
+	function updateDisplay():Controller;
+	function isModified():Bool;
 }
