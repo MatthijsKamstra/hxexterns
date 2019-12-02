@@ -1,0 +1,121 @@
+-cp test
+-cp src
+
+--each
+
+-main MainOnOff
+-js bin/MainOnOff.js
+# -dce no
+
+--next
+
+-lib hxnodejs
+-main MainOnOffBlink
+-js bin/MainOnOffBlink.js
+-dce full
+
+--next
+
+-lib hxnodejs
+-main MainOnOffPushbutton
+-js bin/MainOnOffPushbutton.js
+-dce full
+
+--next
+
+-main MainAirtable
+-js bin/MainAirtable.js
+# -dce no
+
+--next
+
+-lib hxnodejs
+-main MainNodeCanvas
+-js bin/MainNodeCanvas.js
+# -dce no
+
+
+--next
+
+# -lib hxnodejs
+-main MainCast
+-js bin/MainCast.js
+# -dce no
+
+# --next
+
+# -lib hxnodejs
+# -main MainPuppeteer
+# -js bin/MainPuppeteer.js
+# -dce no
+
+--next
+
+-lib hxnodejs
+-main MainNodeJsonDB
+-js bin/MainNodeJsonDB.js
+# -dce no--next
+
+--next
+
+# -lib hxnodejs
+-main MainTabletop
+-js bin/MainTabletop.js
+# -dce no
+
+--next
+
+-main MainAwait
+-js bin/MainAwait.js
+# -dce no
+#
+#
+--next
+
+-main MainCroppie
+-js bin/MainCroppie.js
+# -dce no--next
+
+--next
+
+-main MainJohnnyFive
+-js bin/MainJohnnyFive.js
+-dce full
+
+--next
+
+-main MainFirebase
+-js bin/MainFirebase.js
+-dce full
+-D nodejs
+
+
+# -lib hxnodejs
+# -main MainFaceRecognition
+# -js bin/MainFaceRecognition.js
+# -dce no
+#
+
+
+--next
+
+-lib hxnodejs
+-main MainFaker
+-js bin/MainFaker.js
+# -dce no
+#
+--next
+
+-main MainDatGui
+-js bin/MainDatGui.js
+# -dce no
+# -dce full
+#
+
+--next
+
+-main MainTone
+-js bin/MainTone.js
+# -dce no
+# -dce full
+
