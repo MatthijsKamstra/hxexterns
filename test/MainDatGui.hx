@@ -47,10 +47,10 @@ class MainDatGui {
 		f2.add(this, 'message');
 
 		// Choose from accepted values
-		gui.add(text, 'message', [ 'pizza', 'chrome', 'hooray' ] );
+		gui.add(this, 'message', [ 'pizza', 'chrome', 'hooray' ] );
 
 		// Choose from named values
-		gui.add(text, 'speed', { Stopped: 0, Slow: 0.1, Fast: 5 } );
+		gui.add(this, 'speed', { Stopped: 0, Slow: 0.1, Fast: 5 } );
 
 		gui.addColor(this, 'color0');
 		gui.addColor(this, 'color1');
