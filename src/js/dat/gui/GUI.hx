@@ -112,6 +112,16 @@ extern class GUI {
 	 */
 	function close():Void;
 
+	/**
+	 * hide this GUI
+	 */
+	function hide():Void;
+
+	/**
+	 * show this GUI
+	 */
+	function show():Void;
+
 	public function remove(controller:Controller):Void;
 	public function destroy():Void;
 	public function removeFolder(subFolder:GUI):Void;
