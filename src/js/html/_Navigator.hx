@@ -1,7 +1,7 @@
 package js.html;
 
 @:native("Navigator")
-extern class Navigator
+extern class  Navigator
 {
 	// public var mediaDevices(get, never):js.html.MediaDevices;
 	// inline function get_mediaDevices() return untyped __js__("mediaDevices");
