@@ -17,16 +17,19 @@ import haxe.Json;
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 /**
- * @author Haxe externs: Mathieu Anthoine <anthoine.mathieu@gmail.com>
- *
- * @example: https://github.com/MatthijsKamstra/hxexterns/blob/master/test/MainDatGui.hx
- */
-/**
  * Haxe externs for dat.GUI v0.7.6
  * Project: https://github.com/dataarts/dat.gui
- * Definitions by: Matthijs Kamstra aka [mck] <https://github.com/MatthijsKamstra>
+ * @example: https://github.com/MatthijsKamstra/hxexterns/blob/master/test/MainDatGui.hx
+ *
+ * When using `-dce ful` in build.hxml make sure the vars are not removed by `@:keep var message = '';`
+ *
+ * Definitions by:
+ * 			- Matthijs Kamstra aka [mck] <https://github.com/MatthijsKamstra>
+ * 			- Mathieu Anthoine <anthoine.mathieu@gmail.com>
  * Definitions: <https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/johnny-five>
  *          	<https://github.com/MatthijsKamstra/hxexterns>
+ *
+ *
  */
 @:native("dat.gui.GUI")
 extern class GUI {
