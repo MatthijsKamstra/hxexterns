@@ -42,7 +42,6 @@ extern class GUI {
 	 * @param {JSON} [options.load] JSON object representing the saved state of this GUI
 	 * @param {String} [options.preset] name of the settings preset
 	 * @param {Bool} [options.autoPlace=true] automatic position of this GUI
-	 *
 	 * @param {Bool} [options.auto] ???
 	 * @param {parent} [params.parent] parent of this GUI
 	 * @param {Boolean} [params.closed=false] GUI stars closed
