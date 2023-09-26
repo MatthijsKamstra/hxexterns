@@ -1,8 +1,4 @@
-
-
 ## adjustments
-
-
 
 It's not always possible to have the exact same calls in Haxe externs like you have in javascript/node.js.
 
@@ -10,18 +6,14 @@ It's not always possible to have the exact same calls in Haxe externs like you h
 
 Lowdb is a good example:
 
-
 this is the default code in js/node.js
 
-
 ```js
-var low = require('lowdb')
-var db = low('db.json')
+var low = require("lowdb");
+var db = low("db.json");
 
-db('posts').push({ title: 'lowdb is awesome'})
-
+db("posts").push({ title: "lowdb is awesome" });
 ```
-
 
 Look at this externs <https://github.com/clemos/haxe-js-kit/blob/develop/js/npm/LowDb.hx>
 
@@ -30,8 +22,6 @@ var db = low('db.json')
 // translates in Haxe externs to
 var db = LowDb.construct('db.json');
 ```
-
-
 
 Normally you start with an constructor call in Haxe:
 
@@ -53,14 +43,11 @@ another solution could have been:
 var db = LobDb.low('db.json');
 ```
 
-
 ```haxe
 	public static inline function construct(?fileName : String, ?options : {?autosave: Bool, ?async: Bool}) : LowDb {
 		return untyped require('lowdb')(fileName, options);
 	}
 ```
-
-
 
 and
 
@@ -78,12 +65,7 @@ db('posts').find({ title: 'lowdb is awesome' })
 LowDb.query(db, 'posts').find({ title: 'lowdb is awesome' });
 ```
 
-
-
-
 ```
 @:native("PIXI")
 extern class Pixi
 ```
-
-

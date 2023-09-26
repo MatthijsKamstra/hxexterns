@@ -8,40 +8,40 @@ WIP, as is everything is on the internet...
 
 ## What is in this included
 
-+ js
-	+ chartjs
-	+ codemirror
-	+ dat
-		+ gui
-	+ firebase
-	+ html
-	+ node
-		+ mongodb
-		+ mongoose
-	+ npm
-		+ castv2client
-		- [Airtable](https://www.npmjs.com/package/airtable) <https://github.com/airtable/airtable.js>
-		- Cheerio
-		- Gpio (onoff)
-		- NeDB
-		- NodeJsonDB
-		- SlackClient
-		- Spotify
-		- WebSocket
-		- Slack
-		- YoutubeDownloader
-		- YoutubeNode
-	+ typeform
-	- Croppie
-	- PDFDocument
-	- QRCode
-	- SVGtoPDF
-	- Tabletop
-	- TwitterFetcher
-----
+- js
+  - chartjs
+  - codemirror
+  - dat
+    - gui
+  - firebase
+  - html
+  - node
+    - mongodb
+    - mongoose
+  - npm
+    - castv2client
+    * [Airtable](https://www.npmjs.com/package/airtable) <https://github.com/airtable/airtable.js>
+    * Cheerio
+    * Gpio (onoff)
+    * NeDB
+    * NodeJsonDB
+    * SlackClient
+    * Spotify
+    * WebSocket
+    * Slack
+    * YoutubeDownloader
+    * YoutubeNode
+  - typeform
+  * Croppie
+  * PDFDocument
+  * QRCode
+  * SVGtoPDF
+  * Tabletop
+  * TwitterFetcher
+
+---
 
 Stole <https://github.com/wiggin77/HxMongoNode/blob/master/src/js/node/mongoose/Mongoose.hx>
-
 
 ## how
 
@@ -63,15 +63,13 @@ Repo folder structure
 + test (folder with Haxe test files -> bin)
 ```
 
-
 ## Haxe Externs
 
 What is the best way to start with Haxe Externs: read this [tutorial](howto.md)
 
-
 ## Haxelib
 
-__Use this at your own risk!__
+**Use this at your own risk!**
 
 Most of it is #WIP
 
@@ -93,11 +91,7 @@ don't forget to add it to your build file
 -lib hxexterns
 ```
 
-
-
 ## misc
-
-
 
 <https://github.com/fivdi/onoff#api>
 
@@ -108,8 +102,7 @@ don't forget to add it to your build file
 npm install onoff
 ```
 
-----
-
+---
 
 <https://github.com/Belphemur/node-json-db>
 
@@ -119,5 +112,4 @@ npm install onoff
 npm install node-json-db --save
 ```
 
-
------
+---
